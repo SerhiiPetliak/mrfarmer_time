@@ -35,7 +35,7 @@
 	<a href="/account/store"><div class="menu">Прибыль<img src="/img/11.png" width="40" height="40"></div></a>
 	<a href="/account/bonus"><div class="menu">Бонусы<img src="/img/serebro.png" width="35" height="35"></div></a>
     <a href="/account/igrun"><div class="menu">Игры<img src="/img/idey.png" width="40" height="38"></div></a>
-    <a href="/account/serf"><div class="menu">Серфинг<img src="/img/serf.png" width="40" height="38"></div></a>
+    <a href="/account/serfing"><div class="menu">Серфинг<img src="/img/serf.png" width="40" height="38"></div></a>
 	<a href="/account/exit"><div class="menu">Выход<img src="/img/exit.png" width="35" height="35"></div></a>
 	
 	

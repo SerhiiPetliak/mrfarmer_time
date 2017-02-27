@@ -29,7 +29,9 @@ if(isset($_GET["sel"])){
 		case "config": include("pages/account/_config.php"); break; // Настройки
 		case "bonus": include("pages/account/_bonus.php"); break; // Ежедневный бонус
 		case "lottery": include("pages/account/_lottery.php"); break; // Лотерея
-		case "serf": include("pages/account/_serf.php"); break; // Страница серфинга
+		case "serfing": include("pages/account/_serfing.php"); break; // Страница серфинга
+        case "serfing_add": include("pages/account/_serfing_add.php"); break;
+        case "serfing_cabinet": include("pages/account/_serfing_cabinet.php"); break;
 				
 		case "exit": @session_destroy(); Header("Location: /"); return; break; // Выход
 				
