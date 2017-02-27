@@ -2365,6 +2365,7 @@ padding: 5px 40px 5px 40px;
 .serfing_list_item__footer_right{
     width: 49%;
     float: left;
+    overflow: hidden;
 }
 .serfing_list_item__footer_right{
     text-align: right;
@@ -2401,4 +2402,68 @@ padding: 5px 40px 5px 40px;
 }
 .hidden{
     display: none;
+}
+.scon-edit {
+    background: url(/img/serfing_edit.png) no-repeat left top;
+    margin-right: 5px;
+}
+.scon-delete {
+    background: url(/img/serfing_delete.png) no-repeat left top;
+}
+.scon-edit, .scon-erase, .scon-delete, .scon-pay, .scon-backmoney, .scon-comment, .scon-up, .scon-down, .scon-gray, .scon-stat, .scon-speed-1, .scon-speed-2, .scon-speed-3, .scon-speed-4, .scon-speed-5, .scon-speed-6, .scon-speed-7 {
+    height: 16px;
+    width: 16px;
+    display: block;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    float: right;
+    margin-right: 3px;
+    margin-top: 3px;
+}
+.scd{
+    display: inline;
+    border: none;
+}
+.serfcontrol-moder {
+    background: url(/img/serf-moder.png) no-repeat left top;
+}
+.serfcontrol-pause {
+    background: url(/img/serf-pause.png) no-repeat left top;
+}
+.serfcontrol-play {
+    background: url(/img/serf-play.png) no-repeat left top;
+}
+.add-budgetnone {
+    background: url(/img/serfing_money.png) no-repeat top center;
+    color: #AF0032;
+}
+.serfcontrol-play, .serfcontrol-pause, .serfcontrol-stop {
+     height: 26px;
+     width: 26px;
+     display: block;
+     border: none;
+     outline: none;
+     cursor: pointer;
+     margin: 2px auto;
+ }
+.transport-moder {
+    text-align: center;
+    display: block;
+    border: none;
+    background: url(/img/serfing_admin.png) no-repeat top center;
+    font-size: 11px;
+    padding-top: 25px;
+    color: #5B9F00;
+    cursor: pointer;
+}
+.add-budget, .add-budgetnone {
+    text-align: center;
+    display: block;
+    border: none;
+    background: url(/img/serfing_money.png) no-repeat top center;
+    font-size: 12px;
+    padding-top: 30px;
+    color: #5B9F00;
+    cursor: pointer;
 }
