@@ -124,12 +124,7 @@ function manualPay($db, $usname, $usid, $purse, $sum, $sonfig_site){
 	}
 	unset($last_pay);
 
-	// Выводим ошибки
-	if(!empty($_SESSION["pay_error"])){
-		echo $_SESSION["pay_error"];
-		unset($_SESSION["pay_error"]);
-	}
-	// Выводим ошибки
+
 
 	# Заносим выплату
 	if(isset($_POST["purse2"])){
@@ -200,6 +195,14 @@ function manualPay($db, $usname, $usid, $purse, $sum, $sonfig_site){
 	</div>
 
 	<div class="silver-bk">
+		<?php
+			// Выводим ошибки
+			if(!empty($_SESSION["pay_error"])){
+			echo $_SESSION["pay_error"];
+			unset($_SESSION["pay_error"]);
+			}
+		// Выводим ошибки
+		?>
 	<div class="webmoney_left">
 <form id="cashout" action="" method="post">
 <div class="inp_wrap">
