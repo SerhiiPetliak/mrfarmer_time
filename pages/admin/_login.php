@@ -1,6 +1,6 @@
 <?php
 // список разрешенных IP адресов через пробел
-$allowed_ips = "188.163.99.165";
+$allowed_ips = "188.163.99.165 127.0.0.1";
 
 $ips = explode(" ",$allowed_ips);
 if (array_search($_SERVER["REMOTE_ADDR"],$ips) === FALSE) {

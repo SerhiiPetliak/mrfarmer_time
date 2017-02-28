@@ -137,7 +137,7 @@ function submitform(formnum)
             return false;
         }
         if (rprice < minsum) {
-            document.getElementById('entermsg'+formnum).innerHTML = "<span class='msgbox-error'>Сумма должна быть не менее "+minsum+" баксов</span>";
+            document.getElementById('entermsg'+formnum).innerHTML = "<div class='msgbox-error' ><span class='red-text'>Сумма должна быть не менее "+minsum+" монет</span></div>";
             document.getElementById('entermsg'+formnum).style.display = '';
             tm = setTimeout(function() {
                 hidemsg()
@@ -186,10 +186,15 @@ function senddatacart(rnote, rart, rprice, rcnt, pay_type)
 
 function hideserfaddblock(bname) {
 
-    if (document.getElementById(bname).style.display == 'none')
-        document.getElementById(bname).style.display = '';
-    else
-        document.getElementById(bname).style.display = 'none';
+    if (document.getElementById('serfadd'+bname).style.display == 'none'){
+        document.getElementById('serfadd'+bname).style.display = '';
+        document.getElementById('adv_'+bname).style.display = 'none';
+
+    }else{
+        document.getElementById('serfadd'+bname).style.display = 'none';
+        document.getElementById('adv_'+bname).style.display = 'none';
+    }
+
     return false;
 }
 function alertbudget()
@@ -237,7 +242,7 @@ function payselect(id) {
             "<option value=\"2\">Счет для покупок</option>" +
             "<option value=\"3\">Payeer</option>" +
         "</select>" +
-        "<span class=\"button-red-new adv_type_button\" title=\"Внести средства в бюджет площадки\" onclick=\"javascript:submitform("+id+");\">Оплатить</span>" +
+        "<div class=\"button-red-new adv_type_button adv_pay\" title=\"Внести средства в бюджет площадки\" onclick=\"javascript:submitform("+id+");\">Оплатить</div>" +
         "");
 }
 
@@ -292,61 +297,71 @@ function payselect(id) {
                     </a>
                 </div>
                 <div class="serfing_list_item__body">
-                    <div class="serfing_list_item__footer_left">
-                        <?= $row['desc']; ?>
+                    <div id="serfadd<?php echo $row['id']; ?>" style="display: none; font-size: 12px; text-align: center;">
+                        <form  name="payform<?php echo $row['id']; ?>" class="pay-form payform<?php echo $row['id']; ?>" onkeypress="if (event.keyCode == 13) return false;">
+                            <input name="pay_cnt" value="<?php echo $_SESSION['cnt']; ?>" type="hidden">
+                            <input name="pay_mode" value="12" type="hidden">
+                            <input name="pay_user" value="<?php echo $_SESSION['user_id']; ?>" type="hidden">
+                            <input name="pay_adv" value="<?php echo $row['id']; ?>" type="hidden">Укажите сумму, которую вы хотите внести в бюджет рекламной площадки<br><span class="red-text">(Минимум <span id="minsum<?php echo $row['id']; ?>"><?php echo ($row['price'] * 10); ?></span> монет)</span><div class="pay_order_<?php echo $row['id']; ?>"> <input name="pay_order" maxlength="10" id="pay_adv_sum_<?php echo $row['id']; ?>"  value="<?php echo number_format($row['price']*10, 2, '.', ''); ?>" type="text"><div class="button-red adv_pay" title="Внести средства в бюджет площадки" onclick="javascript:payselect(<?php echo $row['id']; ?>);">Оплатить</div></div><div class="payeer_"<?php echo $row['id']; ?>> </div></form>
+                        <div id="entermsg<?php echo $row['id']; ?>" style="display: none; margin-top: -11px;"></div>
                     </div>
-                    <div class="serfing_list_item__footer_right">
-                        <div>
-                            <?php
-                            if ($row['status'] == 0)
-                            {
-                                ?><div id="status<?php echo $row['id']; ?>"><span class="transport-moder" title="Отправить рекламу на проверку арбитрам" onclick="javascript:advevent(<?php echo $row['id']; ?>,6);">Отправить<br />на проверку</span></div><?php
-                            }
-                            else if ($row['status'] == 1)
-                            {
-                                ?><span class="desctext" style="text-decoration: blink">Ожидает<br />проверки</span><?php
-                            }
-                            else
-                            {
-                                if ($row['money'] > 0)
-                                {
-                                    ?><span class="add-budget" title="Пополнить рекламный бюджет" onclick="javascript:hideserfaddblock('serfadd<?php echo $row['id']; ?>');"><span style="font-size: 11px"><?php echo $row['money']; ?></span></span><?php
-                                }
-                                else
-                                {
-                                    ?><span class="add-budgetnone" title="Пополнить рекламный бюджет" onclick="javascript:hideserfaddblock('serfadd<?php echo $row['id']; ?>');"><span style="font-size: 11px">Пополнить</span></span><?php
-                                }
-                            }
-                            ?>
+                    <div id="adv_<?= $row['id']; ?>">
+                        <div class="serfing_list_item__body_left">
+                            <?= $row['desc']; ?>
                         </div>
-
-                        <div id="advimg<?php echo $row['id']; ?>" style="text-align: center;">
-                            <?php
-                            if ($row['status'] == 0)
-                            {
-                                ?><span class="serfcontrol-moder">&nbsp;</span><?php
-                            }
-                            else if ($row['status'] == 1)
-                            {
-                                ?><span class="serfcontrol-postmoder">&nbsp;</span><?php
-                            }
-                            else if ($row['status'] == 2)
-                            {
-                                ?><span class="serfcontrol-pause" title="Остановить показ ссылки" onclick="javascript:advevent(<?php echo $row['id']; ?>,2);"></span><?php
-                            }
-                            else if ($row['status'] == 3)
-                            {
-                                if ($row['money'] >= $row['price'])
+                        <div class="serfing_list_item__body_right">
+                            <div>
+                                <?php
+                                if ($row['status'] == 0)
                                 {
-                                    ?><span class="serfcontrol-play" title="Запустить показ ссылки" onclick="javascript:advevent(<?php echo $row['id']; ?>,1);"></span><?php
+                                    ?><div id="status<?php echo $row['id']; ?>" style="margin-top: 10px;"><span class="transport-moder" title="Отправить рекламу на проверку арбитрам" onclick="javascript:advevent(<?php echo $row['id']; ?>,6);">Отправить<br />на проверку</span></div><?php
+                                }
+                                else if ($row['status'] == 1)
+                                {
+                                    ?><span class="desctext" style="text-decoration: blink"><center><img src="/img/serfing_inmoder.png" alt="">Ожидает<br />проверки</span></center><?php
                                 }
                                 else
                                 {
-                                    ?><span class="serfcontrol-play" title="Запустить показ ссылки" onclick="javascript:alertbudget();"></span><?php
+                                    if ($row['money'] > 0)
+                                    {
+                                        ?><span class="add-budget" title="Пополнить рекламный бюджет" onclick="javascript:hideserfaddblock('<?php echo $row['id']; ?>');"><span style="font-size: 11px"><?php echo $row['money']; ?></span></span><?php
+                                    }
+                                    else
+                                    {
+                                        ?><span class="add-budgetnone" title="Пополнить рекламный бюджет" onclick="javascript:hideserfaddblock('<?php echo $row['id']; ?>');"><span style="font-size: 11px">Пополнить</span></span><?php
+                                    }
                                 }
-                            }
-                            ?>
+                                ?>
+                            </div>
 
+                            <div id="advimg<?php echo $row['id']; ?>" style="text-align: center;">
+                                <?php
+                                if ($row['status'] == 0)
+                                {
+                                    ?><span class="serfcontrol-moder"></span><?php
+                                }
+                                else if ($row['status'] == 1)
+                                {
+                                    ?><span class="serfcontrol-postmoder"></span><?php
+                                }
+                                else if ($row['status'] == 2)
+                                {
+                                    ?><span class="serfcontrol-pause" title="Остановить показ ссылки" onclick="javascript:advevent(<?php echo $row['id']; ?>,2);"></span><?php
+                                }
+                                else if ($row['status'] == 3)
+                                {
+                                    if ($row['money'] >= $row['price'])
+                                    {
+                                        ?><span class="serfcontrol-play" title="Запустить показ ссылки" onclick="javascript:advevent(<?php echo $row['id']; ?>,1);"></span><?php
+                                    }
+                                    else
+                                    {
+                                        ?><span class="serfcontrol-play" title="Запустить показ ссылки" onclick="javascript:alertbudget();"></span><?php
+                                    }
+                                }
+                                ?>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -376,16 +391,7 @@ function payselect(id) {
                         }
                     ?>
                     <a class="scon-edit" href="/account/serfing/edit/<?php echo $row['id']; ?>" title="Редактировать ссылку"></a>
-                    <tr id="serfadd<?php echo $row['id']; ?>" style="display: none">
-                        <td class="ext" colspan="3">
-                            <form name="payform<?php echo $row['id']; ?>" class="pay-form payform<?php echo $row['id']; ?>" onkeypress="if (event.keyCode == 13) return false;">
-                                <input name="pay_cnt" value="<?php echo $_SESSION['cnt']; ?>" type="hidden">
-                                <input name="pay_mode" value="12" type="hidden">
-                                <input name="pay_user" value="<?php echo $_SESSION['user_id']; ?>" type="hidden">
-                                <input name="pay_adv" value="<?php echo $row['id']; ?>" type="hidden">Укажите сумму, которую вы хотите внести в бюджет рекламной площадки<br>(Минимум <span id="minsum<?php echo $row['id']; ?>"><?php echo ($row['price'] * 10); ?></span> золота)<div class="pay_order_<?php echo $row['id']; ?>"> <input name="pay_order" maxlength="10" id="pay_adv_sum_<?php echo $row['id']; ?>"  value="<?php echo number_format($row['price']*10, 2, '.', ''); ?>" type="text"><center><span class="button-red adv_pay" title="Внести средства в бюджет площадки" onclick="javascript:payselect(<?php echo $row['id']; ?>);">Оплатить</span></div><div class="payeer_"<?php echo $row['id']; ?>> </div></center></form>
-                            <div id="entermsg<?php echo $row['id']; ?>" style="display: none"></div>
-                        </td>
-                    </tr>
+
                 </div>
             </div>
      <?php
