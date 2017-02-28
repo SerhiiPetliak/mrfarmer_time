@@ -11,7 +11,8 @@ if(isset($_POST["admin"])){
 
 	$admin = $func->IsLogin($_POST["admin"]);
 	$pass = $func->IsLogin($_POST["pass"]);
-	
+
+    $percent_serfing = intval($_POST["percent_serfing"]);
 	
 	$ser_per_wmr = intval($_POST["ser_per_wmr"]);
 	$ser_per_wmz = intval($_POST["ser_per_wmz"]);
@@ -37,6 +38,9 @@ if(isset($_POST["admin"])){
 	$amount_peanf_t = intval($_POST["amount_f_t"]);
 	$amount_peang_t = intval($_POST["amount_g_t"]);
 	$amount_peanh_t = intval($_POST["amount_h_t"]);
+
+    $minPay = intval($_POST["minPay"]);
+    $maxPay = intval($_POST["maxPay"]);
 
 	
 	# Проверка на ошибки
@@ -78,6 +82,7 @@ if(isset($_POST["admin"])){
 		
 		admin = '$admin',
 		pass = '$pass',
+		percent_serfing = '$percent_serfing',
 		ser_per_wmr = '$ser_per_wmr',
 		ser_per_wmz = '$ser_per_wmz',
 		ser_per_wme = '$ser_per_wme',
@@ -96,10 +101,12 @@ if(isset($_POST["admin"])){
 		amount_b_t = '$amount_straw_t',
 		amount_c_t = '$amount_pump_t',
 		amount_d_t = '$amount_peas_t',
-		amount_e_t = '$amount_pean_t'
-		amount_f_t = '$amount_peanf_t'
-		amount_g_t = '$amount_peang_t'
-		amount_h_t = '$amount_peanh_t'
+		amount_e_t = '$amount_pean_t',
+		amount_f_t = '$amount_peanf_t',
+		amount_g_t = '$amount_peang_t',
+		amount_h_t = '$amount_peanh_t',
+		minPay = '$minPay',
+		maxPay = '$maxPay'
 		
 		WHERE id = '1'");
 		
@@ -121,6 +128,21 @@ if(isset($_POST["admin"])){
     <td bgcolor="#EFEFEF"><b>Пароль администратора:</b></td>
 	<td width="150" align="center"><input type="text" name="pass" value="<?=$data_c["pass"]; ?>" /></td>
   </tr>
+
+    <tr bgcolor="#EFEFEF">
+        <td><b>% для пользователя - Серфинг (От 1 до 99):</b></td>
+        <td width="150" align="center"><input type="text" name="percent_serfing" value="<?=$data_c["percent_serfing"]; ?>" /></td>
+    </tr>
+
+    <tr>
+        <td><b>Минимальная сумма выплаты (серебром):</b><BR /></td>
+        <td width="150" align="center"><input type="text" name="minPay" value="<?=$data_c["minPay"]; ?>" /></td>
+    </tr>
+
+    <tr>
+        <td><b>Максимальная сумма выплаты:</b><BR /></td>
+        <td width="150" align="center"><input type="text" name="maxPay" value="<?=$data_c["maxPay"]; ?>" /></td>
+    </tr>
   
   <tr>
     <td><b>Стоимость 1 RUB (Серебром):</b></td>

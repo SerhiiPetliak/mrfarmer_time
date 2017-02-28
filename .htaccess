@@ -79,3 +79,5 @@ RewriteRule ^account/serfing/cabinet(/?)+$ index.php?menu=account&sel=serfing_ca
 RewriteRule ^account/serfing/moder(/?)+$ index.php?menu=account&sel=serfing_moder [L]
 RewriteRule ^account/serfing/view/([0-9]+)(/?)+$ http://time/_serfing_view.php?view=$1 [L]
 RewriteRule ^account/advpayeer(/?)+$ index.php?menu=account&sel=advpayeer [L]
+RewriteRule ^account/withdraw.html/([0-9]+)(/?)+$ index.php?menu=account&sel=withdraw&pay_id=$1 [L]
+RewriteRule ^account/withdraw.html(/?)+$ index.php?menu=account&sel=withdraw [L]

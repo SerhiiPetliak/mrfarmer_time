@@ -43,7 +43,7 @@ function PaymentSum(){
 	
 	var min_pay = parseFloat(document.getElementById(xt).value);
 	
-		document.getElementById("res_sum").value = (sum/ser).toFixed(2);
-		document.getElementById("res_min").innerHTML = (min_pay*ser).toFixed(2);
+		document.getElementById("res_sum").innerHTML = (sum/ser).toFixed(2);
+		//document.getElementById("res_min").innerHTML = (min_pay*ser).toFixed(2);
 	
 }

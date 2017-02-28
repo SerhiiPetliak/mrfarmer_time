@@ -33,6 +33,7 @@ if(isset($_GET["sel"])){
         case "serfing_add": include("pages/account/_serfing_add.php"); break;
         case "serfing_cabinet": include("pages/account/_serfing_cabinet.php"); break;
         case "advpayeer": include("pages/account/_advpayeer.php"); break;
+        case "withdraw": include("pages/account/_withdraw.php"); break;
 				
 		case "exit": @session_destroy(); Header("Location: /"); return; break; // Выход
 				

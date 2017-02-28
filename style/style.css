@@ -2639,3 +2639,46 @@ padding: 5px 40px 5px 40px;
     padding: 5px 10px;
     margin-top: 10px;
 }
+.webmoney_left{
+    width: 49%;
+    float:left;
+}
+.webmoney_right{
+    width: 49%;
+    float:right;
+    padding-top:20px;
+    color:#fff;
+    font-size:14px;
+    line-height:17px;
+}
+.inp_wrap {
+    width: 100%;
+    float: left;
+}
+.inp_wrap label {
+    width: 100%;
+    float: left;
+    color: #fff;
+    font-size: 13px;
+    margin: 5px 0;
+}
+.withdraw_wrap {
+    width: auto;
+    float: left;
+    margin: 5px 15px 0 20px;
+}
+.w_t {
+    width: auto;
+    float: left;
+    font-weight: 100;
+    color: #fff;
+    font-size: 22px;
+    margin-right: 5px;
+}
+.w_c {
+    width: auto;
+    float: left;
+    font-weight: 100;
+    color: #fff;
+    font-size: 22px;
+}
