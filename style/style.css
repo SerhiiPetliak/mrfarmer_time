@@ -2539,3 +2539,19 @@ padding: 5px 40px 5px 40px;
 .adv_pay:hover{
     cursor: pointer;
 }
+.goadvsite a {
+    color: #fff;
+    text-shadow: 1px 1px 1px #56A100;
+    text-align: center;
+    padding: 4px 10px;
+    font-size: 14px;
+    border: solid 1px #56A100;
+    background-color: #6AC900;
+    text-decoration: none;
+}
+.goadvsite a:hover{
+    background-color: #E6C500;
+}
+.goadvsited{
+    margin: 10% 3%;
+}

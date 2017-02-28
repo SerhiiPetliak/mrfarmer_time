@@ -222,7 +222,7 @@ function reportformactivate(dnum, dmode) {
 function getpayeerform(type, id, mysum, myid) {
     if(type == 3){
         $(".adv_type_button").css("cssText", "display: none !important;");
-        $(".payeer_"+id).html("<form method=\"POST\" action=\"/account/advpayeer.html\">"+
+        $(".payeer_"+id).html("<form method=\"POST\" action=\"/account/advpayeer\">"+
                 "<input type=\"hidden\" name=\"method\" value=\"payeer\">"+
                 "<input type=\"hidden\" name=\"sum\" value=\""+mysum+"\">"+
                 "<input type=\"hidden\" name=\"adv_id\" value=\""+myid+"\">"+
@@ -290,7 +290,7 @@ function payselect(id) {
    while ($row = $db->FetchArray())
    {
      ?>
-            <div class="serfing_list_item">
+            <div class="serfing_list_item" id="adv<?= $row['id']; ?>">
                 <div class="serfing_list_item__header">
                     <a href="<?php echo $row['url']; ?>" target="_blank">
                         <?= $row['title']; ?>

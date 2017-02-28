@@ -78,7 +78,7 @@ jQuery(document).ready(function(){
     $(".normalm").click(function(e){
         var oLeft = 0, oTop = 0;
         element = this;
-        if (element.className == 'normalm') {
+        if (element.className == 'serfing_list_item__body normalm') {
             do {
                 oLeft += element.offsetLeft;
                 oTop  += element.offsetTop;
@@ -101,6 +101,7 @@ function fixed(p1, p2, p3)
 {
     var myReq = getHTTPRequest();
     var params = "p1="+p1+"&p2="+p2+"&p3="+p3;
+
     function setstate()
     {
         if ((myReq.readyState == 4)&&(myReq.status == 200)) {
@@ -108,9 +109,9 @@ function fixed(p1, p2, p3)
             if (resvalue != '') {
                 if (resvalue.length > 12) {
                     if (elem = document.getElementById(p1)) {
-                        elem.style.backgroundImage = 'none';
-                        elem.className = 'goadvsite';
-                        elem.innerHTML = '<div><a target="_blank" href="/'+resvalue+'" onclick="javascript:goserf(this);">Просмотреть сайт рекламодателя</a></div>';
+                        elem.innerHTML = '';
+                        elem.className = 'serfing_list_item__body goadvsite';
+                        elem.innerHTML = '<div class="goadvsited"><a target="_blank" href="/'+resvalue+'" onclick="javascript:goserf(this);">Просмотреть сайт рекламодателя</a></div>';
                     }
                 } else {
                     if (elem = document.getElementById(resvalue)) {
@@ -217,7 +218,7 @@ function fixed(p1, p2, p3)
                 <div class="serfing_list_item__header">
                     <?= $row['title']; ?>
                 </div>
-                <div class="serfing_list_item__body">
+                <div class="serfing_list_item__body normalm"  id="<?php echo $row['id']; ?>">
                     <?= $row['desc']; ?>
                 </div>
                 <div class="serfing_list_item__footer">
