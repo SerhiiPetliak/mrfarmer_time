@@ -222,14 +222,14 @@ function reportformactivate(dnum, dmode) {
 function getpayeerform(type, id, mysum, myid) {
     if(type == 3){
         $(".adv_type_button").css("cssText", "display: none !important;");
-        $(".payeer_"+id).html("<form method=\"POST\" action=\"/account/advpayeer\">"+
-                "<input type=\"hidden\" name=\"method\" value=\"payeer\">"+
-                "<input type=\"hidden\" name=\"sum\" value=\""+mysum+"\">"+
-                "<input type=\"hidden\" name=\"adv_id\" value=\""+myid+"\">"+
-                "<input type=\"submit\" class=\"payeer_submit\" name=\"pay\" value=\"Перейти к оплате счета\" />"+
+        $(".payeer_"+myid).html("<form method=\"POST\" action=\"/account/advpayeer\">"+
+            "<input type=\"hidden\" name=\"method\" value=\"payeer\">"+
+            "<input type=\"hidden\" name=\"sum\" value=\""+mysum+"\">"+
+            "<input type=\"hidden\" name=\"adv_id\" value=\""+myid+"\">"+
+            "<input type=\"submit\" class=\"payeer_submit adv_pay2\" name=\"pay\" value=\"Перейти к оплате счета\" />"+
             "</form>");
     }else{
-        $(".payeer_"+id).html("");
+        $(".payeer_"+myid).html("");
         $(".adv_type_button").css("display", "block");
     }
 }
@@ -302,7 +302,9 @@ function payselect(id) {
                             <input name="pay_cnt" value="<?php echo $_SESSION['cnt']; ?>" type="hidden">
                             <input name="pay_mode" value="12" type="hidden">
                             <input name="pay_user" value="<?php echo $_SESSION['user_id']; ?>" type="hidden">
-                            <input name="pay_adv" value="<?php echo $row['id']; ?>" type="hidden">Укажите сумму, которую вы хотите внести в бюджет рекламной площадки<br><span class="red-text">(Минимум <span id="minsum<?php echo $row['id']; ?>"><?php echo ($row['price'] * 10); ?></span> монет)</span><div class="pay_order_<?php echo $row['id']; ?>"> <input name="pay_order" maxlength="10" id="pay_adv_sum_<?php echo $row['id']; ?>"  value="<?php echo number_format($row['price']*10, 2, '.', ''); ?>" type="text"><div class="button-red adv_pay" title="Внести средства в бюджет площадки" onclick="javascript:payselect(<?php echo $row['id']; ?>);">Оплатить</div></div><div class="payeer_"<?php echo $row['id']; ?>> </div></form>
+                            <input name="pay_adv" value="<?php echo $row['id']; ?>" type="hidden">Укажите сумму, которую вы хотите внести в бюджет рекламной площадки<br><span class="red-text">(Минимум <span id="minsum<?php echo $row['id']; ?>"><?php echo ($row['price'] * 10); ?></span> монет)</span><div class="pay_order_<?php echo $row['id']; ?>"> <input name="pay_order" maxlength="10" id="pay_adv_sum_<?php echo $row['id']; ?>"  value="<?php echo number_format($row['price']*10, 2, '.', ''); ?>" type="text"><div class="button-red adv_pay" title="Внести средства в бюджет площадки" onclick="javascript:payselect(<?php echo $row['id']; ?>);">Оплатить</div></div>
+                        </form>
+                        <div class="payeer_form payeer_<?php echo $row['id']; ?>" id="payeer_<?php echo $row['id']; ?>"></div>
                         <div id="entermsg<?php echo $row['id']; ?>" style="display: none; margin-top: -11px;"></div>
                     </div>
                     <div id="adv_<?= $row['id']; ?>">
