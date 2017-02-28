@@ -256,10 +256,10 @@ function payselect(id) {
 
 <div class="silver-bk">
 
-    <center>
-        <a href="/account/serfing/add" class="button-green-big" style="margin-top:10px">Разместить ссылку</a>
+    <center style="margin-bottom: 10px;">
+        <a href="/account/serfing/add" class="button-green-big button-green3 bg3" style="margin-top:10px">Разместить ссылку</a>
     </center>
-	<center>
+	<center class="serfing_title">
 	После оплаты баланса ссылки не забудьте включить показы!!!
 	</center><BR/>
 
@@ -302,7 +302,7 @@ function payselect(id) {
                             <input name="pay_cnt" value="<?php echo $_SESSION['cnt']; ?>" type="hidden">
                             <input name="pay_mode" value="12" type="hidden">
                             <input name="pay_user" value="<?php echo $_SESSION['user_id']; ?>" type="hidden">
-                            <input name="pay_adv" value="<?php echo $row['id']; ?>" type="hidden">Укажите сумму, которую вы хотите внести в бюджет рекламной площадки<br><span class="red-text">(Минимум <span id="minsum<?php echo $row['id']; ?>"><?php echo ($row['price'] * 10); ?></span> монет)</span><div class="pay_order_<?php echo $row['id']; ?>"> <input name="pay_order" maxlength="10" id="pay_adv_sum_<?php echo $row['id']; ?>"  value="<?php echo number_format($row['price']*10, 2, '.', ''); ?>" type="text"><div class="button-red adv_pay" title="Внести средства в бюджет площадки" onclick="javascript:payselect(<?php echo $row['id']; ?>);">Оплатить</div></div>
+                            <input name="pay_adv" value="<?php echo $row['id']; ?>" type="hidden">Укажите сумму, которую вы хотите внести в бюджет рекламной площадки<br><span class="red-text">(Минимум <span id="minsum<?php echo $row['id']; ?>"><?php echo ($row['price'] * 10 < 100 ? 100 : $row['price'] * 10); //($row['price'] * 10); ?></span> монет)</span><div class="pay_order_<?php echo $row['id']; ?>"> <input name="pay_order" maxlength="10" id="pay_adv_sum_<?php echo $row['id']; ?>"  value="<?php echo ($row['price'] * 10 < 100 ? 100 : $row['price'] * 10); ?>" type="text"><div class="button-red adv_pay" title="Внести средства в бюджет площадки" onclick="javascript:payselect(<?php echo $row['id']; ?>);">Оплатить</div></div>
                         </form>
                         <div class="payeer_form payeer_<?php echo $row['id']; ?>" id="payeer_<?php echo $row['id']; ?>"></div>
                         <div id="entermsg<?php echo $row['id']; ?>" style="display: none; margin-top: -11px;"></div>

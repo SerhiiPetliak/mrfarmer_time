@@ -2569,3 +2569,73 @@ padding: 5px 40px 5px 40px;
 .adv_pay2:hover{
     cursor: pointer;
 }
+.title {
+    width: 100%;
+    float: left;
+    font-family: sans-serif;
+    font-weight: 100;
+    color: #fff;
+    font-size: 22px;
+    line-height: 26px;
+    margin-bottom: 7px;
+}
+.aligncenter{
+    text-align: center;
+}
+.line_divider {
+    width: 100%;
+    float: left;
+    border-top: 1px solid #d7cac0;
+    margin: 20px 0;
+}
+.adding_funds {
+    width: 330px;
+    margin: auto;
+}
+.add_wrap {
+    width: 150px;
+    float: left;
+}
+.input_text {
+    width: 85%;
+    height: 24px;
+    line-height: 24px;
+    float: left;
+    background: #fff;
+    border: 1px solid #d1d1d1;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: 5px 10px;
+    outline: 0;
+    color: #868686;
+    font-size: 12px;
+    margin: 0 0 7px;
+    position: relative;
+}
+.w50p {
+    width: 80px;
+    text-align: center;
+    font-size: 16px;
+    margin-right: 10px;
+}
+.add_curr {
+    height: 36px;
+    line-height: 36px;
+}
+.button-green3 {
+    width: 150px;
+    padding: 3px;
+    color: #fff;
+    border-radius: 3px;
+    border: none;
+    background-color: #47B214;
+}
+.button-green3:hover{
+    cursor: pointer;
+}
+.bg3{
+    text-decoration: none;
+    padding: 5px 10px;
+    margin-top: 10px;
+}

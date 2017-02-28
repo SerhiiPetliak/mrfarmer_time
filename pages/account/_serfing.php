@@ -140,8 +140,10 @@ function fixed(p1, p2, p3)
 
     <div class="silver-bk">
         <div class="clr"></div>
-     <p class="serfing_title">Зарабатывай просматривая сайты рекламодателей</p>
-        <center><a href="/account/serfing/add" class="button-green-big button-green-big-new" style="margin-top:10px;">Разместить ссылку</a>&nbsp;<a href="/account/serfing/cabinet" class="button-green-big button-green-big-new" style="margin-top:10px;">Мои ссылки</a></center>
+     <p class="serfing_title" style="margin-bottom: 10px;">Зарабатывай просматривая сайты рекламодателей</p>
+        <center>
+            <a href="/account/serfing/add" class="button-green-big button-green-big-new button-green3 bg3" style="margin-top:10px;">Разместить ссылку</a>&nbsp;
+            <a href="/account/serfing/cabinet" class="button-green-big button-green-big-new button-green3 bg3" style="margin-top:10px;">Мои ссылки</a></center>
     	 <hr>
         <div class="serfing_list_wrap">
 
