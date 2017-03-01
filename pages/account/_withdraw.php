@@ -228,7 +228,7 @@ function manualPay($db, $usname, $usid, $purse, $sum, $sonfig_site){
 		обмен электронных валют или вывод с виртуальных кошельков на карточку &mdash; это лишь мала€ часть возможностей, которые предоставл€ет Payeer.
 	</div>
 <script language="javascript">PaymentSum(); SetVal();</script>
-
+<div class="clr"></div>
 
 <center><h4>ѕоследние 10 выплат</h4></center>
 <table cellpadding='3' cellspacing='0' class="admin_pay_table" border='0' bordercolor='#336633' align='center' width="99%">

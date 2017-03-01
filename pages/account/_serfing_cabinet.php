@@ -401,7 +401,7 @@ function payselect(id) {
  } 
  else
  {
-   echo 'ссылок нет';
+   echo '<center>Cсылок нет</center>';
  }
  
  ?>
