@@ -225,7 +225,7 @@ function fixed(p1, p2, p3)
                 </div>
                 <div class="serfing_list_item__footer">
                     <div class="serfing_list_item__footer_left">
-                        Оплата: <?= $pay_user; ?>
+                        Оплата: <?= $pay_user; ?> монет
                     </div>
                     <div class="serfing_list_item__footer_right">
                         <img src="/img/serfing_time.png" alt="">
