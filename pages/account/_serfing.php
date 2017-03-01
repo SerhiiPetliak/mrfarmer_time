@@ -217,7 +217,7 @@ function fixed(p1, p2, p3)
           }
           ?>
             <div class="serfing_list_item">
-                <div class="serfing_list_item__header">
+                <div class="serfing_list_item__header <?= ($row['high'] == 1 ? "sli_blue" : "") ?>">
                     <?= $row['title']; ?>
                 </div>
                 <div class="serfing_list_item__body normalm"  id="<?php echo $row['id']; ?>">
