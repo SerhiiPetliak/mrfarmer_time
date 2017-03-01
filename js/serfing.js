@@ -1,4 +1,4 @@
-function getHTTPRequest()
+п»їfunction getHTTPRequest()
 {
     var req = false;
     try {
@@ -48,21 +48,21 @@ function nextstep(num, cnt)
             if (resvalue != '') {
                 if (resvalue.substr(0, 2) == 'OK') { 
                     vars = resvalue.split(";"); 
-                    document.getElementById("blockverify").innerHTML = '<div class="blocksuccess">Спасибо за посещение!<br /><span>Плата за просмотр ('+vars[1]+' монет.) зачислена</span></div>';
+                    document.getElementById("blockverify").innerHTML = '<div class="blocksuccess">РЎРїР°СЃРёР±Рѕ Р·Р° РїРѕСЃРµС‰РµРЅРёРµ!<br /><span>РџР»Р°С‚Р° Р·Р° РїСЂРѕСЃРјРѕС‚СЂ ('+vars[1]+' РјРѕРЅРµС‚С‹.) Р·Р°С‡РёСЃР»РµРЅР°</span></div>';
                     if ((vars[2] != '0')&&(vars[2].length > 1)) {
                         setTimeout("top.location = '"+vars[2]+"'", 500);
                     }
                 } else
                 if (resvalue == '0')
-                    document.getElementById("blockverify").innerHTML = '<div class="blockerror">Действие не произведено</div>';
+                    document.getElementById("blockverify").innerHTML = '<div class="blockerror">Р”РµР№СЃС‚РІРёРµ РЅРµ РїСЂРѕРёР·РІРµРґРµРЅРѕ</div>';
                 else
                     document.getElementById("blockverify").innerHTML = resvalue;
             }
         } else {
-            document.getElementById("blockverify").innerHTML = "<span class='loading' title='Подождите пожалуйста...'></span>";
+            document.getElementById("blockverify").innerHTML = "<span class='loading' title='РџРѕРґРѕР¶РґРёС‚Рµ РїРѕР¶Р°Р»СѓР№СЃС‚Р°...'></span>";
         }
     }
-    myReq.open("POST", "/ajax/us-stepserf.php", true);
+    myReq.open("POST", "ajax/us-stepserf.php", true);
     myReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     myReq.setRequestHeader("Content-lenght", params.length);
     myReq.setRequestHeader("Connection", "close");
