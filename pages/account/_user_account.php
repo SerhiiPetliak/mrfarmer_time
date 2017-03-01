@@ -45,7 +45,7 @@ echo '<center><img src="/'.$prof_data['ava'].'"></center>';
   </tr>
   <tr>
     <td align="left" style="padding:3px;">Баланс (На вывод)</td>
-    <td align="left" style="padding:3px;"><font color="#000;"><?=sprintf("%.2f",$prof_data["money_p"]); ?> монет</font></td>
+    <td align="left" style="padding:3px;"><font color="#000;"><?=sprintf("%.2f",$prof_data["money_p"]); ?> монет</font> [<a href="/account/withdraw.html"><font color="blue">Вывести</font></a>]</td>
   </tr>
   <tr>
     <td align="left" style="padding:3px;">Заработано на рефералах</td>

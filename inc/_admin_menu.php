@@ -20,7 +20,7 @@
 	<a href="/?menu=admin4ik&sel=contacts"><div class="menu1">Контакты</div></a>
         <a href="/?menu=admin4ik&sel=users"><div class="menu1">Список пользователей</div></a>	
 	<a href="/?menu=admin4ik&sel=sender"><div class="menu1">Массовая рассылка</div></a>
-	<a href="/?menu=admin4ik&sel=payments"><div class="menu1">Список выплат</div></a>
+	<a href="/?menu=admin4ik&sel=payments&payeer"><div class="menu1">Список выплат</div></a>
         <a href="/?menu=admin4ik&sel=config"><div class="menu1">Настройки</div></a>
 	<a href="/?menu=admin4ik&sel=serfing_moder"><div class="menu1">Серфинг</div></a>
 

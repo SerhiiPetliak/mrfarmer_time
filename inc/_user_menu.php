@@ -4,7 +4,7 @@
   <tr>
 
     <td align="center"><a href="/account/insert">Пополнить баланс</a></td>
-    <td align="center"><a href="/account/payment">Вывести на кошелек</a></td>
+    <td align="center"><a href="/account/withdraw.html">Вывести на кошелек</a></td>
   </tr>
 
   <tr>

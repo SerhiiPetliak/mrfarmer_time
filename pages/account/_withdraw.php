@@ -2,14 +2,8 @@
 $_OPTIMIZATION["title"] = "F.A.Q. - Вопрос-Ответ";
 $_OPTIMIZATION["description"] = "Вопрос - ответ";
 $_OPTIMIZATION["keywords"] = "Инструкция по игре. Основные игровые моменты.";
-?>
-<div class="text_right">
-<div class="text_pages_top"></div>
-<div class="text_pages_content"> </div>
-<div class="text_pages_content">
-<div class="title_r"><center>Заказ выплаты</center></div>
 
-<?PHP
+
 $_OPTIMIZATION["title"] = "Аккаунт - Заказ выплаты";
 $usid = $_SESSION["user_id"];
 $usname = $_SESSION["user"];
@@ -31,6 +25,20 @@ if( substr($purse,0,1) != "P" ) return false;
 if( !preg_match("/^[0-9]{7,8}$/", substr($purse,1)) ) return false; 
 return $purse;
 }
+?>
+<div class="s-bk-lf">
+		<div class="acc-title">Заказ выплаты</div>
+	</div>
+
+	<div class="silver-bk">
+		<?php
+			// Выводим ошибки
+			if(!empty($_SESSION["pay_error"])){
+                echo $_SESSION["pay_error"];
+                unset($_SESSION["pay_error"]);
+            }
+		// Выводим ошибки
+
 
 function autoPay($config, $sum, $sonfig_site, $purse, $db, $usname, $usid){
 
@@ -63,6 +71,8 @@ function autoPay($config, $sum, $sonfig_site, $purse, $db, $usname, $usid){
 					//'protectPeriod' => '3', // период протекции (от 1 до 30 дней)
 					//'protectCode' => '12345', // код протекции
 				));
+
+                var_dump($arTransfer);exit();
 
 				if (!empty($arTransfer["historyId"]))
 				{
@@ -120,7 +130,7 @@ function manualPay($db, $usname, $usid, $purse, $sum, $sonfig_site){
 	$db->Query("SELECT * FROM db_payment WHERE user_id = '$usid' ORDER BY id DESC LIMIT 1");
 	$last_pay = $db->FetchArray();
 	if($last_pay['status'] == 2){
-		echo "<center><b><font color = 'red'>Для уточнения причины отказа свяжитесь с администратором в разделе <a href='http://mr-farmer.biz/contacts.html'>Контакты</a></font></b></center><BR />";
+		echo "<center><b><font color = 'red'>Для уточнения причины отказа свяжитесь с администратором в разделе <a href='/contacts'>Контакты</a></font></b></center><BR />";
 	}
 	unset($last_pay);
 
@@ -129,7 +139,6 @@ function manualPay($db, $usname, $usid, $purse, $sum, $sonfig_site){
 	# Заносим выплату
 	if(isset($_POST["purse2"])){
 
-	
 		$purse = $_POST["purse2"];
 
 		$sum = intval($_POST["sum"]);
@@ -190,19 +199,7 @@ function manualPay($db, $usname, $usid, $purse, $sum, $sonfig_site){
 
 	}
 ?>
-	<div class="s-bk-lf">
-		<div class="acc-title">Заказ выплаты</div>
-	</div>
 
-	<div class="silver-bk">
-		<?php
-			// Выводим ошибки
-			if(!empty($_SESSION["pay_error"])){
-			echo $_SESSION["pay_error"];
-			unset($_SESSION["pay_error"]);
-			}
-		// Выводим ошибки
-		?>
 	<div class="webmoney_left">
 <form id="cashout" action="" method="post">
 <div class="inp_wrap">
@@ -233,11 +230,9 @@ function manualPay($db, $usname, $usid, $purse, $sum, $sonfig_site){
 <script language="javascript">PaymentSum(); SetVal();</script>
 
 
+<center><h4>Последние 10 выплат</h4></center>
+<table cellpadding='3' cellspacing='0' class="admin_pay_table" border='0' bordercolor='#336633' align='center' width="99%">
 
-<table cellpadding='3' cellspacing='0' border='0' bordercolor='#336633' align='center' width="99%">
-  <tr>
-    <td colspan="5" align="center"><h4>Последние 10 выплат</h4></td>
-    </tr>
   <tr>
     <td align="center" class="m-tb">Золото</td>
     <td align="center" class="m-tb">Получаете</td>

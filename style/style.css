@@ -2682,3 +2682,10 @@ padding: 5px 40px 5px 40px;
     color: #fff;
     font-size: 22px;
 }
+.admin_pay_table tr td{
+    border-radius: 0px !important;
+    border: 1px solid #fff !important;
+}
+.admin_pay_table{
+    border: 1px solid #fff !important;
+}
