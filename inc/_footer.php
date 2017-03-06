@@ -93,9 +93,30 @@ style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Ме
 					</center>
 
 				</div>
-			
-			
-			
+
+
+
+<script>
+	$(".header_banner_table").click(function(){
+		$.ajax({
+			method : "get",
+			url    : "/bannerbonus.php",
+			data   : "banbonus",
+			success: function (data) {
+				if(data.status == "error"){
+					alert("С моента прошлого получения бонусов не прошло 24 часа!");
+				}else{
+					alert("Вам начислен бонус в размере "+data.sum+" монет");
+					location.replace('account/bonus');
+				}
+			},
+			error  : function (data) {
+				console.log(data);
+			},
+			dataType: "json"
+		});
+	});
+</script>
 			
 	</body>
 </html>
