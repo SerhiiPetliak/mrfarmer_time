@@ -72,7 +72,6 @@ function autoPay($config, $sum, $sonfig_site, $purse, $db, $usname, $usid){
 					//'protectCode' => '12345', // код протекции
 				));
 
-                var_dump($arTransfer);exit();
 
 				if (!empty($arTransfer["historyId"]))
 				{

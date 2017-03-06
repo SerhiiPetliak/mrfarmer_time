@@ -17,9 +17,10 @@ $bonus_max = 50;
 <BR />
 <center>
 Бонус выдается один раз в 24 часа. Сумма бонуса генерируется случайно от <b><?=$bonus_min;?></b> до <b><?=$bonus_max;?></b> серебра. <BR /><BR />
- Для получения кликните по любому баннеру на сайте и вам будет доступна кнопка получения бонуса!</center>
+ Для получения кликните по любому баннеру на сайте и вам будет начислен бонус!</center>
 <BR /><BR />
 <?PHP
+/*
 $ddel = time() + 60*60*24;
 $dadd = time();
 $db->Query("SELECT COUNT(*) FROM db_bonus_list WHERE user_id = '$usid' AND date_del > '$dadd'");
@@ -52,7 +53,9 @@ $hide_form = false;
 
 			# Показывать или нет форму
 			if(!$hide_form){
+*/
 ?>
+<!--
 <div style="display: none;" id="hideBtn">
 <form action="" method="post">
 <table width="330" border="0" align="center">
@@ -65,11 +68,12 @@ $hide_form = false;
 </table>
 </form>
 </div>
+-->
 <?PHP
 
-			}
+			//}
 
-	}else echo "<center><font color = 'red'><b>Вы уже получали бонус за последние 24 часа</b></font></center><BR />"; ?>
+	//}else echo "<center><font color = 'red'><b>Вы уже получали бонус за последние 24 часа</b></font></center><BR />"; ?>
 
 
 

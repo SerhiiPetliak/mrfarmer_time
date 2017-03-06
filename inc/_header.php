@@ -106,7 +106,7 @@ for(var i = 0; i < links.length; i++){
 <form action="" method="post">
 <a onclick="document.getElementById('hideBtn').style.display='block';" target="_blank" >
 <h4 onclick="document.getElementById('hideBtn').style.display='block';">
-					<?php include("banhap.php");?>
+					<?php  include("banhap.php");?>
 					</h4></a></form>
 					
 	</div>
